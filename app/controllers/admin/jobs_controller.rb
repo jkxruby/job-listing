@@ -44,12 +44,7 @@ before_action :require_is_admin?
     redirect_to admin_jobs_path,alert: "admin deleted"
   end
 
-  def require_is_admin?
-    if !current_user.admin?
-      flash[:alert] = 'you are not admin'
-      redirect_to root_path
-    end
-  end
+  
 
 private
   def job_params
