@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
 
 def index
   @jobs = Job.all
@@ -14,6 +15,7 @@ end
 
 def create
   @job = Job.new(job_params)
+  
   if @job.save
     redirect_to jobs_path
   else
@@ -27,6 +29,7 @@ end
 
 def update
   @job = Job.find(params[:id])
+
   if @job.update(job_params)
     redirect_to jobs_path,notice: "update success"
   else
