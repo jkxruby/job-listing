@@ -9,5 +9,6 @@ def admin?
 end
 
 has_many :jobs
+has_many :resumes 
 
 end
