@@ -4,11 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-def admin?
-  is_admin
-end
+  def admin?
+    is_admin
+  end
 
-has_many :jobs
-has_many :resumes 
-
+  has_many :jobs
+  has_many :resumes
 end

@@ -6,25 +6,25 @@
   <table class="table table-boldered">
     <thead>
       <tr>
-           <td>
-                职缺
-            </td>
+        <td>
+          职缺
+        </td>
 
-            <td>
-              收到履历数量
-            </td>
-            <td>
-                薪资下限
-            </td>
-            <td>
-                薪资上限
-            </td>
-            <td>
-                管理选项
-            </td>
-            <td>
-                刊登时间
-            </td>
+        <td>
+          收到履历数量
+        </td>
+        <td>
+          薪资下限
+        </td>
+        <td>
+          薪资上限
+        </td>
+        <td>
+          管理选项
+        </td>
+        <td>
+          刊登时间
+        </td>
       </tr>
     </thead>
     <tbody>
@@ -41,7 +41,7 @@
           <%= link_to("Delete", admin_job_path(job),method: :delete, class: "btn btn-sm btn-primary", data: { confirm:"狠心删了啊?"})%>
           <% if job.is_hidden %>
           <%= link_to("Publish", publish_admin_job_path(job), method: :post, class: "btn btn-xs btn-default") %>
-          <% else %>
+        <% else %>
           <%= link_to("Hide", hide_admin_job_path(job), method: :post, class: "btn btn-xs btn-default") %>
           <% end %>
         </td>
