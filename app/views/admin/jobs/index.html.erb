@@ -6,9 +6,25 @@
   <table class="table table-boldered">
     <thead>
       <tr>
-        <td>Title</td>
-        <td>Description</td>
-        <td>Fuction</td>
+           <td>
+                职缺
+            </td>
+
+            <td>
+              收到履历数量
+            </td>
+            <td>
+                薪资下限
+            </td>
+            <td>
+                薪资上限
+            </td>
+            <td>
+                管理选项
+            </td>
+            <td>
+                刊登时间
+            </td>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +33,9 @@
         <td>
           <%= render_job_status(job) %>
           <%= link_to(job.title, admin_job_path(job))%></td>
-        <td><%= job.description %></td>
+        <td><%= job.resumes.count, admin_job_resumes_path(job) %></td>
+        <td><%= job.wage_upper_bound %></td>
+        <td><%= job.wage_lower_bound %></td>
         <td>
           <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-primary btn-sm")%>
           <%= link_to("Delete", admin_job_path(job),method: :delete, class: "btn btn-sm btn-primary", data: { confirm:"狠心删了啊?"})%>
@@ -27,6 +45,7 @@
           <%= link_to("Hide", hide_admin_job_path(job), method: :post, class: "btn btn-xs btn-default") %>
           <% end %>
         </td>
+        <td><%= job.created_at %></td>
       </tr>
       <% end %>
     </tbody>
